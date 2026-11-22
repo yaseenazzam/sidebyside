@@ -86,7 +86,7 @@ The application's core domain will initially consist of three models.
 
 Represents a shared running session involving up to two participants.
 
-Potential responsibilities include:
+Responsibilities include:
 
 - Identifying the session.
 - Recording when the session was created.
@@ -97,7 +97,7 @@ Potential responsibilities include:
 
 Represents an individual runner's participation in a shared session.
 
-Potential responsibilities include:
+Responsibilities include:
 
 - Identifying the runner.
 - Recording when the runner joined.
@@ -198,6 +198,21 @@ The specific authentication and authorization mechanisms will be designed during
 - Shared session state does not need to represent every runner's activity.
 
 This decision will be finalized during implementation of the session data model.
+
+### Decision 004 — Local Running Activity Tracking
+
+**Decision:** Running activity will be tracked locally on the runner's device, independently of backend connectivity.
+
+**Rationale:**
+- Runners should be able to continue their activity without an internet connection.
+- Elapsed running time should continue increasing during temporary network interruptions.
+- The backend is responsible for synchronizing statistics between participants, not controlling the local running timer.
+
+**Future considerations:**
+- Synchronization after reconnection.
+- Indicating stale statistics to the partner.
+- Handling application suspension or termination.
+- Supporting paused runs in a future version.
 
 ## 10. Current Implementation Status
 
